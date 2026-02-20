@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الحلول الأولى الخليجية - First Gulf Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+:root {
+    --primary-purple: #6B2B8C;
+    --primary-orange: #FF6B1A;
+    --secondary-gold: #FFB800;
+    --accent-teal: #00A896;
+    --dark-bg: #0a0a1f;
+    --white: #FFFFFF;
+    --gradient-1: linear-gradient(135deg, #6B2B8C, #FF6B1A);
+    --gradient-2: linear-gradient(45deg, #FF6B1A, #FFB800);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--dark-bg);
+    color: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ===== خلفية ثابتة أنيقة ===== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, rgba(107,43,140,0.2), transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255,107,26,0.2), transparent 50%);
+    z-index: -1;
+}
+
+/* ===== حاوية رئيسية ===== */
+.container {
+    width: 1200px;
+    max-width: 95%;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,107,26,0.2);
+    border-radius: 50px;
+    padding: 50px;
+    box-shadow: 0 20px 50px rgba(107,43,140,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.container:hover {
+    box-shadow: 0 30px 60px rgba(255,107,26,0.2);
+}
+
+/* ===== الهيدر أنيق ===== */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logo {
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 200px;
+    max-height: 100px;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #fff, var(--secondary-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 10px 0;
+}
+
+.english {
+    font-size: 22px;
+    color: var(--primary-orange);
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    background: rgba(255,107,26,0.1);
+    padding: 12px 35px;
+    border-radius: 50px;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+    border: 1px solid var(--primary-orange);
+}
+
+.subtitle i {
+    color: var(--secondary-gold);
+    margin: 0 8px;
+}
+
+/* ===== أقسام ===== */
+.section {
+    margin: 50px 0;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.section-header i {
+    font-size: 36px;
+    color: var(--primary-orange);
+}
+
+.section-header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--white);
+    position: relative;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-2);
+    border-radius: 3px;
+}
+
+/* ===== بطاقة من نحن ===== */
+.about-card {
+    background: rgba(255,255,255,0.02);
+    padding: 35px;
+    border-radius: 40px;
+    border: 1px solid rgba(255,184,0,0.15);
+}
+
+.about-text {
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 25px;
+}
+
+.about-text strong {
+    color: var(--secondary-gold);
+    font-size: 26px;
+}
+
+/* القيم */
+.values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.value-item {
+    background: rgba(107,43,140,0.2);
+    padding: 8px 20px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,107,26,0.3);
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.value-item:hover {
+    background: rgba(255,107,26,0.2);
+    transform: translateY(-3px);
+}
+
+.value-item i {
+    color: var(--secondary-gold);
+}
+
+/* ===== الخدمات ===== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: rgba(255,255,255,0.02);
+    padding: 30px 20px;
+    border-radius: 35px;
+    border: 1px solid rgba(255,107,26,0.15);
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-orange);
+    box-shadow: 0 15px 30px rgba(255,107,26,0.15);
+}
+
+.service-card i {
+    font-size: 48px;
+    color: var(--secondary-gold);
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.service-card:hover i {
+    transform: scale(1.1);
+}
+
+.service-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.service-card p {
+    color: rgba(255,255,255,0.6);
+    font-size: 15px;
+}
+
+/* ===== عملاؤنا ===== */
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.client-card {
+    background: rgba(255,255,255,0.02);
+    padding: 30px 20px;
+    border-radius: 35px;
+    text-align: center;
+    border: 1px solid rgba(255,184,0,0.15);
+    transition: all 0.3s;
+}
+
+.client-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-orange);
+    box-shadow: 0 15px 30px rgba(107,43,140,0.2);
+}
+
+.client-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.client-card:hover .client-logo {
+    transform: scale(1.05);
+}
+
+.client-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.client-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--secondary-gold);
+    margin-bottom: 5px;
+}
+
+.client-sector {
+    font-size: 16px;
+    color: var(--primary-orange);
+}
+
+/* ===== الموقع ===== */
+.location-card {
+    background: linear-gradient(145deg, rgba(107,43,140,0.15), rgba(0,168,150,0.15));
+    border-radius: 45px;
+    padding: 40px;
+    border: 1px solid rgba(255,184,0,0.2);
+}
+
+.address-line {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.address-line:last-child {
+    margin-bottom: 0;
+}
+
+.address-line i {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,184,0,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--secondary-gold);
+    border: 1px solid var(--primary-orange);
+    transition: all 0.3s;
+}
+
+.address-line:hover i {
+    background: var(--primary-orange);
+    color: white;
+}
+
+.address-line span {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.address-line small {
+    display: block;
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 3px;
+}
+
+.location-actions {
+    margin-top: 30px;
+}
+
+.map-btn {
+    background: linear-gradient(145deg, var(--primary-purple), var(--primary-orange));
+    color: white;
+    text-decoration: none;
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--secondary-gold);
+    transition: all 0.3s;
+}
+
+.map-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255,107,26,0.3);
+}
+
+.map-btn i {
+    font-size: 20px;
+}
+
+/* ===== التواصل ===== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.contact-card {
+    background: rgba(255,255,255,0.02);
+    padding: 25px 15px;
+    border-radius: 35px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255,107,26,0.15);
+    transition: all 0.3s;
+}
+
+.contact-card:hover {
+    background: rgba(255,107,26,0.1);
+    transform: translateY(-5px);
+    border-color: var(--secondary-gold);
+}
+
+.contact-card i {
+    font-size: 36px;
+    color: var(--secondary-gold);
+    margin-bottom: 10px;
+}
+
+.contact-card span {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.contact-card small {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+}
+
+/* ===== الفوتر ===== */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,107,26,0.2);
+}
+
+.footer a {
+    font-size: 24px;
+    font-weight: 800;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+}
+
+.footer a:hover {
+    transform: scale(1.05);
+}
+
+.copyright {
+    color: rgba(255,255,255,0.5);
+    font-size: 16px;
+}
+
+/* ===== للطباعة ===== */
+@media print {
+    body { background: white; }
+    .container { background: white; border: 2px solid #6B2B8C; box-shadow: none; }
+    .service-card, .client-card, .location-card { background: #f8f8f8; break-inside: avoid; }
+}
+
+/* ===== للشاشات الصغيرة ===== */
+@media (max-width: 900px) {
+    .services-grid, .clients-grid, .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    h1 { font-size: 36px; }
+}
+
+@media (max-width: 600px) {
+    .services-grid, .clients-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .container { padding: 25px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- الهيدر -->
+    <div class="header">
+        <div class="logo">
+            <img src="logo.png" alt="الحلول الأولى الخليجية" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'100\' viewBox=\'0 0 200 100\'%3E%3Crect width=\'200\' height=\'100\' fill=\'%236B2B8C\' rx=\'20\'/%3E%3Ctext x=\'50\' y=\'60\' font-size=\'40\' fill=\'%23FF6B1A\' font-weight=\'bold\'%3EFG%3C/text%3E%3Ctext x=\'100\' y=\'80\' font-size=\'16\' fill=\'%23FFB800\'%3ESolutions%3C/text%3E%3C/svg%3E'">
+        </div>
+        <h1>الحلول الأولى الخليجية</h1>
+        <div class="english">FIRST GULF SOLUTIONS</div>
+        <div class="subtitle">
+            <i class="fas fa-crown"></i> شريك Odoo المعتمد <i class="fas fa-star"></i>
+        </div>
+    </div>
+
+    <!-- من نحن -->
+    <div class="section">
+        <div class="section-header">
+            <i class="fas fa-building"></i>
+            <h2>من نحن</h2>
+        </div>
+        <div class="about-card">
+            <p class="about-text">
+                <strong>الحلول الأولى الخليجية</strong> شريكك الاستراتيجي للتحول الرقمي عبر حلول <span style="color:#FF6B1A;">Odoo ERP</span>. نقدم خبرات متكاملة لرفع كفاءة الأعمال وزيادة الإنتاجية.
+            </p>
+            <div class="values">
+                <span class="value-item"><i class="fas fa-diamond"></i> مصداقية</span>
+                <span class="value-item"><i class="fas fa-rocket"></i> ابتكار</span>
+                <span class="value-item"><i class="fas fa-handshake"></i> شراكة</span>
+                <span class="value-item"><i class="fas fa-crown"></i> تميز</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- الخدمات -->
+    <div class="section">
+        <div class="section-header">
+            <i class="fas fa-crown"></i>
+            <h2>خدماتنا</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-chart-pie"></i>
+                <h3>تخطيط الموارد</h3>
+                <p>حلول ERP متكاملة</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-rocket"></i>
+                <h3>تنفيذ Odoo</h3>
+                <p>بأفضل الممارسات</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>تطوير الأنظمة</h3>
+                <p>تخصيص حسب احتياجك</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-robot"></i>
+                <h3>أتمتة العمليات</h3>
+                <p>لزيادة الإنتاجية</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-plug"></i>
+                <h3>تكامل الأنظمة</h3>
+                <p>ربط مع أنظمتك</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>تدريب ودعم</h3>
+                <p>فريق متخصص</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- عملاؤنا -->
+    <div class="section">
+        <div class="section-header">
+            <i class="fas fa-handshake"></i>
+            <h2>عملاؤنا</h2>
+        </div>
+        <div class="clients-grid">
+            <div class="client-card">
+                <div class="client-logo">
+                    <img src="clients/client1.png" alt="المركز الوطني للنخيل والتمور" onerror="this.innerHTML='🏗️'">
+                </div>
+                <div class="client-name">المركز الوطني للنخيل والتمور</div>
+                <div class="client-sector">قطاع زراعي</div>
+            </div>
+            <div class="client-card">
+                <div class="client-logo">
+                    <img src="clients/client2.png" alt="الاولى للفحص والتفتيش" onerror="this.innerHTML='🛒'">
+                </div>
+                <div class="client-name">الاولى للفحص والتفتيش</div>
+                <div class="client-sector">التجزئة</div>
+            </div>
+            <div class="client-card">
+                <div class="client-logo">
+                    <img src="clients/client3.png" alt="الرعاية الصحية" onerror="this.innerHTML='🏥'">
+                </div>
+                <div class="client-name">الرعاية الصحية</div>
+                <div class="client-sector">الخدمات الطبية</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الموقع -->
+    <div class="section">
+        <div class="section-header">
+            <i class="fas fa-map-marker-alt"></i>
+            <h2>موقعنا</h2>
+        </div>
+        
+        <div class="location-card">
+            <div class="address-line">
+                <i class="fas fa-building"></i>
+                <div>
+                    <span>عمارة كورال سنتر - الدور الثالث</span>
+                    <small>حي التعاون - شارع عثمان بن عفان</small>
+                </div>
+            </div>
+            <div class="address-line">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <span>أوقات العمل</span>
+                    <small>الأحد - الخميس: 9ص - 5م</small>
+                </div>
+            </div>
+            <div class="address-line">
+                <i class="fas fa-calendar-week"></i>
+                <div>
+                    <span>الإجازة الأسبوعية</span>
+                    <small>الجمعة - السبت</small>
+                </div>
+            </div>
+            
+            <div class="location-actions">
+                <a href="https://maps.google.com/?q=24.776892,46.707680" target="_blank" class="map-btn">
+                    <i class="fas fa-map-marked-alt"></i> افتح الموقع على خرائط جوجل
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- التواصل -->
+    <div class="section">
+        <div class="section-header">
+            <i class="fas fa-headset"></i>
+            <h2>تواصل معنا</h2>
+        </div>
+        
+        <div class="contact-grid">
+            <a href="https://wa.me/966534933803" class="contact-card">
+                <i class="fab fa-whatsapp"></i>
+                <span>واتساب</span>
+                <small>0534933803</small>
+            </a>
+            <a href="mailto:fahad@firstgulf.com.sa" class="contact-card">
+                <i class="far fa-envelope"></i>
+                <span>البريد</span>
+                <small>fahad@firstgulf.com.sa</small>
+            </a>
+            <a href="https://www.linkedin.com/in/first-gulf-solutions-5b9a46283" class="contact-card">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+                <small>First Gulf</small>
+            </a>
+            <a href="https://www.firstgulf.com.sa" class="contact-card">
+                <i class="fas fa-globe"></i>
+                <span>الموقع</span>
+                <small>firstgulf.com.sa</small>
+            </a>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <div class="footer">
+        <a href="https://www.firstgulf.com.sa" target="_blank">www.firstgulf.com.sa</a>
+        <div class="copyright">
+            <i class="far fa-copyright"></i> 2026 الحلول الأولى الخليجية
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
